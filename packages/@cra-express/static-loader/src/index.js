@@ -25,7 +25,10 @@ function staticLoader(app, options) {
     );
     console.log("Connected to CRA Client dev server");
   } else {
-    app.use(express.static(clientBuildPath, { index: false }));
+    app.use(express.static(clientBuildPath, { 
+      index: false, 
+      maxAge: 31536000 * 1000
+    }));
   }
 
   return app;
